@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
-        #gifContainer {
+        #gifContainer, #messageContainer {
             display: none;
         }
         #testButton {
@@ -36,7 +36,7 @@
         <p>test4</p>
     </div>
     
-    <div>
+    <div id="messageContainer">
         <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
         <button id="sendButton" onclick="sendMessage()">Enviar</button>
     </div>
@@ -45,6 +45,7 @@
         function showGif() {
             document.getElementById('testButton').style.display = 'none';
             document.getElementById('gifContainer').style.display = 'block';
+            document.getElementById('messageContainer').style.display = 'block';
         }
 
         function sendMessage() {
@@ -54,7 +55,7 @@
                 return;
             }
 
-            fetch("https://discord.com/api/webhooks/1346973989137813609/Cq12MAGouSk9_LYxbBJQ1duZbRDxlsdCYxOUCFx8lrD7sD3pufxcBtLNH4XDtRRNvOb5", {
+            fetch("https://discord.com/api/webhooks/1348274091827925024/2YrSn03w34IMO6XsK_Q8MH9g6GFJxj5M3roGIPQ9awqrPCdbU1tMtxczkiKPdwuPklYH", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
