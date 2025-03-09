@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click this</title>
+    <title>GitHub Pages Test</title>
     <style>
         body {
             text-align: center;
@@ -17,19 +17,60 @@
             font-size: 24px;
             padding: 15px 30px;
         }
+        #messageInput {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #sendButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <button id="testButton" onclick="showGif()">Click this</button>
     <div id="gifContainer">
         <img src="test.gif" alt="Test GIF">
-        <p>Thank you so much for supporting me</p>
+        <p>test4</p>
+    </div>
+    
+    <div>
+        <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+        <button id="sendButton" onclick="sendMessage()">Enviar</button>
     </div>
     
     <script>
         function showGif() {
             document.getElementById('testButton').style.display = 'none';
             document.getElementById('gifContainer').style.display = 'block';
+        }
+
+        function sendMessage() {
+            const message = document.getElementById('messageInput').value;
+            if (message.trim() === "") {
+                alert("Por favor, escribe un mensaje antes de enviar.");
+                return;
+            }
+
+            fetch("https://discord.com/api/webhooks/1346973989137813609/Cq12MAGouSk9_LYxbBJQ1duZbRDxlsdCYxOUCFx8lrD7sD3pufxcBtLNH4XDtRRNvOb5", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ content: message })
+            }).then(response => {
+                if (response.ok) {
+                    alert("Mensaje enviado con éxito");
+                    document.getElementById('messageInput').value = "";
+                } else {
+                    alert("Error al enviar el mensaje");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Error al enviar el mensaje");
+            });
         }
     </script>
 </body>
